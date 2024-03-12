@@ -1,0 +1,11 @@
+###
+POST http://localhost:8082/attributes/create
+Content-Type: application/json
+
+{
+  "name": "size"
+}
+
+
+
+

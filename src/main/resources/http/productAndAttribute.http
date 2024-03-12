@@ -1,0 +1,9 @@
+###
+POST http://localhost:8082/product_attribute/create
+Content-Type: application/json
+
+{
+  "productId": 1,
+  "attributeId": 1,
+  "value": "100"
+}
