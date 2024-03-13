@@ -21,9 +21,9 @@ public class HTTPRequestUtil {
     }
 
     public static JWTDTO getJWTDTO(HttpServletRequest request, ProfileRole... requiredRoleList) {
-        Integer id = (Integer) request.getAttribute("id");
+        Long id = (Long) request.getAttribute("id");
         ProfileRole role = (ProfileRole) request.getAttribute("role");
-        JWTDTO dto = new JWTDTO(id,role);
+        JWTDTO dto = new JWTDTO(String.valueOf(id),role);
 
         for (ProfileRole requiredRole : requiredRoleList) {
             if (role.equals(requiredRole)) {

@@ -20,12 +20,8 @@ public class ProductService {
         ProductEntity entity =new ProductEntity();
 
         entity.setName(productDTO.getName());
-//        entity.setStoreId(12L);
-//        entity.setCategoryId(34L);
         entity.setCreatedDate(LocalDateTime.now());
         entity.setPrice(productDTO.getPrice());
-//        entity.setRate(0D);
-//        entity.setDescription("New");
         entity.setStatus(ProductStatus.ACTIVE);
 
         productRepository.save(entity);

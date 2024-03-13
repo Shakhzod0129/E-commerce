@@ -23,6 +23,10 @@ public class SpringSecurityConfig {
     private JWTTokenFilter jwtTokenFilter;
     public static String[] AUTH_WHITELIST = {
 
+
+            "/auth/*",
+            "/auth/verification/email/*",
+
             "/product/*",
             "/product_attribute/*",
             "/attributes/*"

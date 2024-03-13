@@ -1,0 +1,34 @@
+### Login  1
+POST localhost:8080/auth/login
+Accept-Language: UZ
+Content-Type: application/json
+#user
+
+{
+  "email": "allayarovshahzodbekz@gmail.com",
+  "password": "User1234@"
+}
+
+
+
+
+####Registration
+POST localhost:8080/auth/registration
+Accept-Language: RU
+Content-Type: application/json
+
+{
+
+  "name": "Shahzodbek",
+  "surname": "Aliyev",
+  "email": "allayarovshahzodbekz@gmail.com",
+  "password": "User1234@",
+  "phone": "917311777",
+  "gender": "MALE"
+}
+
+###Verification By email
+GET localhost:8080/auth/verification/email/eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTAzMTU0MDEsImlkIjoxLCJleHAiOjE3MTAzMTU3MDEsImlzcyI6IkUtY29tbWVyY2UifQ.33DzYg_Wku1Jc4xwVh0idQWFUDeeCRO5sQ47jyIyPuWja8hya3d2FgabkuuNpLQrrNhE-_IBpDGd7Nuy3lA22Q
+
+
+

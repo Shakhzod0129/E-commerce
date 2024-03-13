@@ -21,7 +21,7 @@ public class JWTUtil {
         jwtBuilder.signWith(secretKeySpec);
         jwtBuilder.claim("id", profileId);
         jwtBuilder.expiration(new Date(System.currentTimeMillis() + (emailTokenLiveTime)));
-        jwtBuilder.issuer("KunUzTest");
+        jwtBuilder.issuer("E-commerce");
         return jwtBuilder.compact();
     }
 
