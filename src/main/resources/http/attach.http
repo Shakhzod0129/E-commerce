@@ -1,0 +1,28 @@
+### Create
+POST http://localhost:8082/attach/upload
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="kunuzBanner.webp"
+
+
+< C:\Users\asadb\OneDrive\Desktop\img\kunuzBanner.webp
+
+### Get by id
+GET http://localhost:8080/attach/open/a12c91fe-0949-4027-b1c2-5beb783f996a.jpg
+Accept-Language: UZ
+
+
+### Download
+GET http://localhost:8080/attach/download/9177ddf6-7745-4898-8444-15fbae2b7029.jpg
+Accept-Language: UZ
+
+
+### Pagination
+GET http://localhost:8080/attach/attachPagination
+
+
+### Delete
+DELETE http://localhost:8080/attach/delete/844be37a-e4e3-48be-9f31-4c755b2adb88
+Accept-Language: UZ
+

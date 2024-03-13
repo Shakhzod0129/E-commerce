@@ -22,6 +22,8 @@ public class ProfileDTO {
     private Status status;
     private String password;
     private ProfileRole role;
+    private String jwt;
+    private String imageId;
     private LocalDateTime createdDate;
 
 

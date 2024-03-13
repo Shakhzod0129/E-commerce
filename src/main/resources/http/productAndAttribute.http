@@ -1,5 +1,5 @@
 ###
-POST http://localhost:8082/product_attribute/create
+POST http://localhost:8080/product_attribute/create
 Content-Type: application/json
 
 {

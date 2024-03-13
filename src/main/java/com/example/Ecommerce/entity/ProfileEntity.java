@@ -2,6 +2,7 @@ package com.example.Ecommerce.entity;
 
 import com.example.Ecommerce.enums.Gender;
 import com.example.Ecommerce.enums.ProfileRole;
+import com.example.Ecommerce.enums.ProfileStatus;
 import com.example.Ecommerce.enums.Status;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -35,8 +36,9 @@ public class ProfileEntity {
     @Column(name = "gender")
     private Gender gender;
 
-    @Column(name = "name")
-    private Status status;
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private ProfileStatus status=ProfileStatus.ACTIVE;
 
     @Column(name = "password")
     private String password;
@@ -45,6 +47,11 @@ public class ProfileEntity {
     @Column(name = "role")
     private ProfileRole role;
 
+    @Column(name = "image_id")
+    private String imageId;
+
+    @Column(name = "visible")
+    private Boolean visible = true;
     @Column(name = "created_date")
     private LocalDateTime createdDate;
 }
