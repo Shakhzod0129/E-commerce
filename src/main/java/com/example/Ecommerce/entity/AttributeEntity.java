@@ -11,10 +11,8 @@ import java.util.Set;
 @Setter
 @Entity
 @Table(name = "attributes")
-public class AttributeEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class AttributeEntity extends BaseEntity {
+
 
     @Column(name = "attribute_name")
     private String attributeName;

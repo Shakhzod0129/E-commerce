@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        table td, table th {
+            border: 1px solid #cccccc;
+            padding: 10px;
+        }
+
+        table tr:nth-child(even) {
+            background-color: #f1f1f1;
+        }
+
+        table tr:hover {
+            background-color: #999999;
+            cursor: pointer;
+        }
+
+        table th {
+            border: 1px solid #cccccc;
+            text-align: left;
+            background-color: darkblue;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+<h1 style="text-align: center">Attribute List</h1>
+<br>
+<a th:href="@{/attribute/go-to-create}">Add Attribute</a>
+<br>
+
+<table>
+    <tr>
+        <th>№</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>#</th>
+    </tr>
+    <tr th:each="attributeDTO, iStat : ${attributeList}">
+        <td th:text="${iStat.count +1}"></td>
+        <td th:text="*{attributeDTO.id}"></td>
+        <td th:text="${attributeDTO.name}"></td>
+        <td>
+<!--            <a th:href="@{/attribute/go-to-edit/{attributeDTOId}(attributeDTO=${attributeDTO.id})}">Edit</a> ,-->
+<!--            <a th:href="@{/student/delete}">Delete</a>-->
+        </td>
+    </tr>
+</table>
+
+</body>
+</html>
