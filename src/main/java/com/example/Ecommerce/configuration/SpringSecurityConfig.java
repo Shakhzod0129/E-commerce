@@ -27,9 +27,23 @@ public class SpringSecurityConfig {
             "/auth/*",
             "/auth/verification/email/*",
 
+            "/v2/api-docs",
+            "/configuration/ui",
+            "/configuration/security",
+            "/swagger-ui.html",
+            "/webjars/**",
+            "/v3/api-docs/**",
+            "/swagger-ui/**",
+            "/swagger-resources",
+            "/swagger-resources/**",
+            "/comment/replyList/*",
+
             "/product/*",
             "/product_attribute/*",
-            "/attributes/*"
+            "/attribute/*",
+            "/attribute/**",
+            "/attach/**",
+            "/attach/adm/**",
     };
 
     @Bean

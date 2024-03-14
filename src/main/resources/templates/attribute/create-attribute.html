@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Attribute</title>
+    <style>
+        .container {
+            width: 50%;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+    </style>
+</head>
+<body>
+<h1>Create Attribute</h1>
+<form action="#" th:action="@{/attribute/create}" th:object="${attributeDTO}" method="post">
+    <label for="name">Attribute Name:</label>
+    <input type="text"  id="name" th:field="*{name}">
+    <button type="submit">Create Attribute</button>
+</form>
+</body>
+</html>
+<!--<label for="surname">Surname</label>-->
+<!--<input type="text" th:field="${student.surname}" id="surname" name="surname" placeholder="Surname">-->
