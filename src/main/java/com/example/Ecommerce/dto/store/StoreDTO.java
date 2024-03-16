@@ -1,4 +1,4 @@
-package com.example.Ecommerce.dto;
+package com.example.Ecommerce.dto.store;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;
@@ -9,9 +9,13 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CategoryDTO {
+public class StoreDTO {
     private Long id;
     private String name;
-    private Long parentId;
+    private Long profileId;
+    private Integer quantityOfProduct;
+    private Integer quantityOfOrder;
     private LocalDateTime createdDate;
+    private Long countOfComment;
+    private Double rateOfProducts;
 }

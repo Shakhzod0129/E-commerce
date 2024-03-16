@@ -6,10 +6,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "store")
-public class StoreEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class StoreEntity extends BaseEntity{
 
     @Column(name = "name")
     private String name;
@@ -26,7 +23,10 @@ public class StoreEntity {
     @Column(name = "quantity_of_order")
     private Integer quantityOfOrder;
 
-    @Column(name = "created_date")
-    private LocalDateTime createdDate;
+    @Column(name = "comment_count")
+    private Long commentCount;
+
+    @Column(name = "reate_products")
+    private Double rete;
 
 }

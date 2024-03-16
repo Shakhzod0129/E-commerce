@@ -28,6 +28,8 @@ public class SpringSecurityConfig {
             "/auth/verification/email/*",
             "/auth/registration",
             "/profile/verification/email/*",
+            "/category/*",
+            "/category/**",
 
             "/v2/api-docs",
             "/configuration/ui",

@@ -2,6 +2,7 @@ package com.example.Ecommerce.service;
 
 import com.example.Ecommerce.dto.ProductDTO;
 import com.example.Ecommerce.entity.ProductEntity;
+import com.example.Ecommerce.enums.AppLanguage;
 import com.example.Ecommerce.enums.ProductStatus;
 import com.example.Ecommerce.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +15,11 @@ public class ProductService {
 
     @Autowired
     private ProductRepository productRepository;
+    @Autowired
+    private CategoryService categoryService;
 
-    public String create(ProductDTO productDTO) {
+
+    public String create(ProductDTO productDTO, AppLanguage language) {
 
         ProductEntity entity =new ProductEntity();
 
