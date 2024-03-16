@@ -17,6 +17,10 @@ public class CategoryEntity {
     @Column(name = "parent_id")
     private Long parentId;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "parent_id",insertable = false,updatable = false)
+    private CategoryEntity category;
+
     @Column(name = "created_date")
     private LocalDateTime createdDate;
 }

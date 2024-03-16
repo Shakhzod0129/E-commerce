@@ -1,0 +1,70 @@
+###Create Profile
+POST localhost:8080/profile/adm
+#admin
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDg3NTkxMTUsImVtYWlsIjoiaHVzZW50ZXNoYXlldjhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MDg4NDU1MTUsImlzcyI6Ikt1blV6VGVzdCJ9.IA3ieFZi854zOs6_wmVHZpBBhzVGHr4ZaW96EJLTmRAFfp7W44sRluCFHybWmHzZOFOqlq5pUrHtn8sRs1G75w
+Content-Type: application/json
+
+{
+  "name": "User",
+  "surname": "Userov",
+  "email": "user@gmail.com",
+  "password": "$1User1$",
+  "role": "ROLE_USER"
+}
+
+###Change Password
+POST localhost:8080/profile/any/@1Moderator1@
+Accept-Language: RU
+#moderator
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDgzNjAxNjAsImVtYWlsIjoibW9kZXJhdG9yQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX01PREVSQVRPUiIsImV4cCI6MTcwODQ0NjU2MCwiaXNzIjoiS3VuVXpUZXN0In0.rKHnsJYuyNtvmS5BAW67wpLhpapSomAt1IYnsMfEFYaFFbF1M5sYKPEykX6y6TiD0Xpbh3Rb6b4hEaL2WQtsBA
+
+###Update Email
+POST localhost:8080/profile/any
+Accept-Language: RU
+#moderator
+#Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDg0OTkxNTgsImVtYWlsIjoibW9kZXJhdG9yQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX01PREVSQVRPUiIsImV4cCI6MTcwODU4NTU1OCwiaXNzIjoiS3VuVXpUZXN0In0.2soLgfWw3Vu6m7dMUhFvQ3NzgcFrLywtiVVKKXQKHGaFN5H6I0KRJRS77NGSAkkbpZmFPR74IabNucCMgZX2gw
+#user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA0ODczNjAsImVtYWlsIjoiYWxsYXlhcm92c2hhaHpvZGJla3pAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTcxMDU3Mzc2MCwiaXNzIjoiS3VuVXpUZXN0In0.0-1dLCJubOUYwjxfiDlzI_4Q7PVvMgl7hmTRYuKGN_3isQXqy_a8e4E6mvmiAz2Ne7Zbx5Q-G0n1lDMKdRzSxA
+Content-Type: application/json
+
+{
+  "email": "shakhzodallayorov23@gmail.com"
+}
+###Verification for update email
+GET localhost:8080/profile/verification/email/eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA0ODczODYsImVtYWlsIjoic2hha2h6b2RhbGxheW9yb3YyM0BnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiaWQiOjEsImV4cCI6MTcxMDU3Mzc4NiwiaXNzIjoiS3VuVXpUZXN0In0.cSosi_jONKiTh415O4i7K2seileOiQ82zJOwjfgocDY-SWPMG6WtRESyzxoZqEInXDuOBxG7zgRyUMgq6l5Y1A
+Accept-Language: EN
+
+###Update detail
+POST localhost:8080/profile/any/detail
+Accept-Language: RU
+#moderator
+#Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDg0OTkxNTgsImVtYWlsIjoibW9kZXJhdG9yQGdtYWlsLmNvbSIsInJvbGUiOiJST0xFX01PREVSQVRPUiIsImV4cCI6MTcwODU4NTU1OCwiaXNzIjoiS3VuVXpUZXN0In0.2soLgfWw3Vu6m7dMUhFvQ3NzgcFrLywtiVVKKXQKHGaFN5H6I0KRJRS77NGSAkkbpZmFPR74IabNucCMgZX2gw
+#user
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDg1MDI2MzcsImVtYWlsIjoiaHVzZW50ZXNoYXlldjhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTcwODU4OTAzNywiaXNzIjoiS3VuVXpUZXN0In0.QYcdsy1hTOhrRu7v3IWwCS49rpiHKfis0-OuqE0-IbKUti2vQUo2nDGwSroGe0dPSAAmvmAV6I4OzBs3J5SPsg
+Content-Type: application/json
+
+{
+  "name": "ali",
+  "surname": "aliyev"
+}
+
+### Update Photo
+POST localhost:8080/profile/any/photo
+#user1 name=Husen
+#Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDg1OTAwMjksImVtYWlsIjoiaHVzZW50ZXNoYXlldjhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfVVNFUiIsImV4cCI6MTcwODY3NjQyOSwiaXNzIjoiS3VuVXpUZXN0In0.NhXLjLP-IkAABW1kQ_uoiCFMvTOw2s67AsUAgaLcWkxc1Mxkpyn7F2yoPG6QcSSgotlf78dLuoUD1umfATvS_g
+#user2 name=User1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDg1OTE5NzYsImVtYWlsIjoiaHVzZW50ZXNoYXlpdkBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzA4Njc4Mzc2LCJpc3MiOiJLdW5VelRlc3QifQ.pFB3YAitT-6Fc4WocxFFSY1ZKr8byE3ctph0iK46ju2LnSSIOEUvO9BHtCTSBPHaGronz3OIgpM_Cyd5I3mhNg
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="file"; filename="photo_2024-02-22_13-17-53.jpg"
+
+< C:\Users\user\Downloads\photo_2024-02-22_13-17-53.jpg
+
+###Get Profile Detail
+GET localhost:8080/profile/any/getDetails
+Accept-Language: RU
+#user2 name=User1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDg1OTE5NzYsImVtYWlsIjoiaHVzZW50ZXNoYXlpdkBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzA4Njc4Mzc2LCJpc3MiOiJLdW5VelRlc3QifQ.pFB3YAitT-6Fc4WocxFFSY1ZKr8byE3ctph0iK46ju2LnSSIOEUvO9BHtCTSBPHaGronz3OIgpM_Cyd5I3mhNg
+
+

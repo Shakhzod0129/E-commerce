@@ -59,7 +59,7 @@ public class JWTUtil {
         jwtBuilder.issuer("KunUzTest");
         return jwtBuilder.compact();
     }
-    public static String encodeForSpringSecurity2(String email, ProfileRole role,Integer id) {
+    public static String encodeForSpringSecurity2(String email, ProfileRole role,Long id) {
         JwtBuilder jwtBuilder = Jwts.builder();
         jwtBuilder.issuedAt(new Date());
 

@@ -105,11 +105,6 @@
 			<version>1.5.5</version> <!-- Versiyani o'zgartiring -->
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-thymeleaf</artifactId>
-		</dependency>
-
 	</dependencies>
 
 	<build>
