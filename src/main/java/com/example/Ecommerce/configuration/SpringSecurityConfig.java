@@ -26,6 +26,8 @@ public class SpringSecurityConfig {
 
             "/auth/*",
             "/auth/verification/email/*",
+            "/auth/registration",
+            "/profile/verification/email/*",
 
             "/v2/api-docs",
             "/configuration/ui",

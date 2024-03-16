@@ -15,6 +15,8 @@ public class BaseEntity {
     protected Long id;
     @Column(name = "created_date")
     protected LocalDateTime createdDate = LocalDateTime.now();
+    @Column(name = "updated_date")
+    protected LocalDateTime updatedDate;
     @Column(name = "visible")
     private Boolean visible = true;
 }

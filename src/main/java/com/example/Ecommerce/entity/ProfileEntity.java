@@ -14,16 +14,12 @@ import java.time.LocalDateTime;
 @Setter
 @Entity
 @Table(name = "Profile")
-public class ProfileEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "profile_id")
-    private Long id;
+public class ProfileEntity extends BaseEntity {
 
-    @Column(name = "first_name")
+    @Column(name = "name")
     private String name;
 
-    @Column(name = "last_name")
+    @Column(name = "surname")
     private String surname;
 
     @Column(name = "email")
@@ -47,11 +43,11 @@ public class ProfileEntity {
     @Column(name = "role")
     private ProfileRole role;
 
-    @Column(name = "image_id")
+    @Column(name = "attcha_Id")
     private String imageId;
 
-    @Column(name = "visible")
-    private Boolean visible = true;
-    @Column(name = "created_date")
-    private LocalDateTime createdDate;
+    @ManyToOne
+    @JoinColumn(name = "attach_Id",insertable = false,updatable = false)
+    private AttachEntity attach;
+
 }

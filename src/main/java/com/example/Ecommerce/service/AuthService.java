@@ -1,7 +1,6 @@
 package com.example.Ecommerce.service;
 
 
-
 import com.example.Ecommerce.dto.ProfileDTO;
 import com.example.Ecommerce.dto.auth.AuthDTO;
 import com.example.Ecommerce.dto.auth.RegistrationDTO;
@@ -133,7 +132,7 @@ public class AuthService {
         entity.setRole(ProfileRole.ROLE_USER);
         entity.setPhoneNumber(dto.getPhone());
         entity.setGender(dto.getGender());
-        entity.setCreatedDate(LocalDateTime.now());
+        entity.setImageId(dto.getImageId());
         profileRepository.save(entity);
 
         String jwt = JWTUtil.encodeForEmail(Math.toIntExact(entity.getId()));
@@ -144,7 +143,7 @@ public class AuthService {
                 "  padding: 14px 25px;\n" +
                 "  text-align: center;\n" +
                 "  text-decoration: none;\n" +
-                "  display: inline-block;\" href=\"http://localhost:8082/auth/verification/email/%s\n" +
+                "  display: inline-block;\" href=\"http://localhost:8080/auth/verification/email/%s\n" +
                 "\">Click</a>\n" +
                 "<br>\n";
         text = String.format(text, entity.getName(), jwt);
