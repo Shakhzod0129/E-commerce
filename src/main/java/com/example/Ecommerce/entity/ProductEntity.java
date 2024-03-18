@@ -13,18 +13,13 @@ import java.time.LocalDateTime;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
 @Table(name = "product")
-public class ProductEntity {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+public class ProductEntity extends BaseEntity{
 
     @Column(name = "store_id")
     private Long storeId;
-
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "store_id",insertable = false,updatable = false)
     private StoreEntity store;
-
 
     @Column(name = "category_id")
     private Long categoryId;
@@ -41,17 +36,17 @@ public class ProductEntity {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "created_date")
-    private LocalDateTime createdDate;
-
-    @Column(name = "update_date")
-    private LocalDateTime updateDate;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "status")
     private ProductStatus status;
 
     @Column(name = "rate")
     private Double rate;
+
+    @Column(name = "count_comments")
+    private Long countComments;
+
+    @Column(name = "count_orders")
+    private Long countOrders;
 
 }

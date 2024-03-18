@@ -1,5 +1,6 @@
 package com.example.Ecommerce.dto;
 
+import com.example.Ecommerce.dto.extre.AttachDTO;
 import com.example.Ecommerce.enums.Gender;
 import com.example.Ecommerce.enums.ProfileRole;
 import com.example.Ecommerce.enums.ProfileStatus;
@@ -26,6 +27,7 @@ public class ProfileDTO  {
     private String jwt;
     private String imageId;
     private LocalDateTime createdDate;
+    private AttachDTO attach;
 
 
 }

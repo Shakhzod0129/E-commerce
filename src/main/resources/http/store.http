@@ -1,0 +1,38 @@
+### create
+POST http://localhost:8080/store
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA3NDc4NjgsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMDgzNDI2OCwiaXNzIjoiS3VuVXpUZXN0In0.G6eMWgsBD0CwNTlp-l8nsScNTG3eoXrk7j4_ANVcngnfB8GKD4uQKA6ifE99cpb3kEITrOPw9ZyL_nwOuxmr1g
+
+{
+  "name": "Inbazar",
+  "profileId":3,
+  "attachId": "ed7e9503-5a71-4e76-ab3e-f038e102c669",
+  "description": "Erkaklar kiyimi"
+}
+
+
+### UPDATE
+PUT http://localhost:8080/store/1
+Content-Type: application/json
+#Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA3NTYyMTUsImVtYWlsIjoidXNlcjEyMjNAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfU0VMTEVSIiwiZXhwIjoxNzEwODQyNjE1LCJpc3MiOiJLdW5VelRlc3QifQ.6A4Bil879fdTm-TYCq2NBLbTjh_Kebpouu2xfan79gsHTsIuZNrMHnnOvBGy3H0PTlSR7wUckRpQYzeZjFw6Sw
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA3NTY2MjQsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9TRUxMRVIiLCJleHAiOjE3MTA4NDMwMjQsImlzcyI6Ikt1blV6VGVzdCJ9.7VTPRS9aYtshNLPRqGa9mGBgy4q29AW4NmOw7NywlI4fP6BxVqqOieOHSCZnjxJ_vQ9BMQQV1ww0GMui8GfZlA
+
+{
+  "attachId": "e50dc317-2618-4358-b9b4-1fcf05c6c0c5"
+}
+
+
+
+### pagination by ADMIN
+GET http://localhost:8080/store/getByPagination
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA3NDc4NjgsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMDgzNDI2OCwiaXNzIjoiS3VuVXpUZXN0In0.G6eMWgsBD0CwNTlp-l8nsScNTG3eoXrk7j4_ANVcngnfB8GKD4uQKA6ifE99cpb3kEITrOPw9ZyL_nwOuxmr1g
+
+###
+GET http://localhost:8080/store/getList
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA3NDc4NjgsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMDgzNDI2OCwiaXNzIjoiS3VuVXpUZXN0In0.G6eMWgsBD0CwNTlp-l8nsScNTG3eoXrk7j4_ANVcngnfB8GKD4uQKA6ifE99cpb3kEITrOPw9ZyL_nwOuxmr1g
+
+###
+GET http://localhost:8080/store/get-by-profile?profileId=1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA3NDc4NjgsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMDgzNDI2OCwiaXNzIjoiS3VuVXpUZXN0In0.G6eMWgsBD0CwNTlp-l8nsScNTG3eoXrk7j4_ANVcngnfB8GKD4uQKA6ifE99cpb3kEITrOPw9ZyL_nwOuxmr1g
+
+

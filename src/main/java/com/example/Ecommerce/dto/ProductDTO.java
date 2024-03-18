@@ -15,7 +15,7 @@ public class ProductDTO {
     private Long id;
     private Long storeId;
     private List<Long> categoryId;
-    private List<String> imageId;
+    private List<String> attachId;
     private Double price;
     private String name;
     private String description;
@@ -23,4 +23,6 @@ public class ProductDTO {
     private LocalDateTime updateDate;
     private ProductStatus status;
     private Double rate;
+    private Long countComments;
+    private Long countOrders;
 }
