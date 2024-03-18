@@ -6,6 +6,7 @@ import com.example.Ecommerce.dto.UpdateProfileDTO;
 import com.example.Ecommerce.dto.extre.JWTDTO;
 import com.example.Ecommerce.entity.ProfileEntity;
 import com.example.Ecommerce.enums.AppLanguage;
+import com.example.Ecommerce.enums.ProfileRole;
 import com.example.Ecommerce.enums.ProfileStatus;
 import com.example.Ecommerce.exp.AppBadException;
 import com.example.Ecommerce.repository.ProfileRepository;
@@ -156,6 +157,13 @@ public class ProfileService {
         return dto;
     }
 
+
+    public void updateRole(Long profileId, ProfileRole role,AppLanguage language){
+        ProfileEntity profileEntity = get(profileId, language);
+        profileEntity.setRole(role);
+
+        profileRepository.save(profileEntity);
+    }
     /**
      * this method looks up the input ID from the database.
      * If found, it returns the found object, otherwise it throws an exception 👇🏻
@@ -167,4 +175,6 @@ public class ProfileService {
         });
 
     }
+
+
 }

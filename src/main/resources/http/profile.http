@@ -1,15 +1,15 @@
 ###Create Profile
 POST localhost:8080/profile/adm
 #admin
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MDg3NTkxMTUsImVtYWlsIjoiaHVzZW50ZXNoYXlldjhAZ21haWwuY29tIiwicm9sZSI6IlJPTEVfQURNSU4iLCJleHAiOjE3MDg4NDU1MTUsImlzcyI6Ikt1blV6VGVzdCJ9.IA3ieFZi854zOs6_wmVHZpBBhzVGHr4ZaW96EJLTmRAFfp7W44sRluCFHybWmHzZOFOqlq5pUrHtn8sRs1G75w
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA1ODg4OTMsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMDY3NTI5MywiaXNzIjoiS3VuVXpUZXN0In0.PV2Xnoip0KSGRzk8YE8ufXlEaEmGVXmp82_4hpw8rAh6JQtDiOHVLuHnmLdSKombdavx2G7_TUrHYbaA2IdghA
 Content-Type: application/json
 
 {
-  "name": "User",
+  "name": "UserBEK",
   "surname": "Userov",
-  "email": "user@gmail.com",
+  "email": "user1223@gmail.com",
   "password": "$1User1$",
-  "role": "ROLE_USER"
+  "role": "ROLE_SELLER"
 }
 
 ###Change Password

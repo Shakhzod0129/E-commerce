@@ -8,9 +8,14 @@ Content-Type: application/json
 //  "email": "allayarovshahzodbekz@gmail.com",
 //  "password": "User1234@"
 //}
+//{
+//  "email": "Adminceek1234@gmail.com",
+//  "password": "User1234@"
+//}
+
 {
-  "email": "Adminceek1234@gmail.com",
-  "password": "User1234@"
+  "email": "user@gmail.com",
+  "password": "$1User1$"
 }
 
 

@@ -48,6 +48,7 @@ public class SpringSecurityConfig {
             "/attribute/**",
             "/attach/**",
             "/attach/adm/**",
+
     };
 
     @Bean
