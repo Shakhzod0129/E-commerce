@@ -55,6 +55,7 @@ public class CreateProductDTO {
     @NotBlank(message = "Description in English may not be blank")
     private String descriptionEn;
 
+    private List<Long> tagName;
     // Getter va Setter metodi
 
 

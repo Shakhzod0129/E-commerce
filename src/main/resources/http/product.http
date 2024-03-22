@@ -13,7 +13,8 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwMjMwMTcsImVtYWlsIjoid
   "descriptionEn": "Kurtka description en",
   "price": 5000,
   "categoryId": [1],
-  "attachId": ["71d54059-69ad-4023-bd66-ec640d29707a","443c3550-7b1e-4673-9b7b-79e0264be49a"]
+  "attachId": ["71d54059-69ad-4023-bd66-ec640d29707a","443c3550-7b1e-4673-9b7b-79e0264be49a"],
+  "tagName": [1,2,3]
 }
 
 ### update

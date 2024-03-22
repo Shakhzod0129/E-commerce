@@ -1,0 +1,8 @@
+###create
+POST http://localhost:8080/tag
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwOTk1MjEsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMzE3MzEyMSwiaXNzIjoiS3VuVXpUZXN0In0.alEj_L1I2-HqATxt1_6T5DdSXRduKGECf-IpJBBBD5FddzEBIL9Cu9JBIBmgbHWUkQFD_zsrLgkr3utzrNlEhA
+
+{
+  "tagName": "basketball"
+}
