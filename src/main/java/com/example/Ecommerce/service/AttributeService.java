@@ -1,6 +1,7 @@
 package com.example.Ecommerce.service;
 
-import com.example.Ecommerce.dto.AttributeDTO;
+import com.example.Ecommerce.dto.attribute.AttributeDTO;
+import com.example.Ecommerce.dto.attribute.CreateAttributeDTO;
 import com.example.Ecommerce.entity.AttributeEntity;
 import com.example.Ecommerce.repository.AttributeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,10 +16,12 @@ public class AttributeService {
     @Autowired
     private AttributeRepository attributeRepository;
 
-    public String  create(AttributeDTO attributeDTO) {
+    public String  create(CreateAttributeDTO dto) {
         AttributeEntity entity=new AttributeEntity();
 
-        entity.setAttributeName(attributeDTO.getName());
+        entity.setNameUz(dto.getNameUz());
+        entity.setNameRu(dto.getNameRu());
+        entity.setNameEn(dto.getNameEn());
 
         attributeRepository.save(entity);
 
@@ -36,7 +39,9 @@ public class AttributeService {
             AttributeDTO dto=new AttributeDTO();
 
             dto.setId(attributeEntity.getId());
-            dto.setName(attributeEntity.getAttributeName());
+            dto.setNameUz(attributeEntity.getNameUz());
+            dto.setNameRu(attributeEntity.getNameRu());
+            dto.setNameEn(attributeEntity.getNameEn());
 
             dtos.add(dto);
         }

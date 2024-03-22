@@ -1,4 +1,4 @@
-package com.example.Ecommerce.dto;
+package com.example.Ecommerce.dto.profile;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.Getter;

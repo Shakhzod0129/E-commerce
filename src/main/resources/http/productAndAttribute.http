@@ -1,9 +1,12 @@
 ###
 POST http://localhost:8080/product_attribute/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwOTk1MjEsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMzE3MzEyMSwiaXNzIjoiS3VuVXpUZXN0In0.alEj_L1I2-HqATxt1_6T5DdSXRduKGECf-IpJBBBD5FddzEBIL9Cu9JBIBmgbHWUkQFD_zsrLgkr3utzrNlEhA
 
 {
-  "productId": 1,
-  "attributeId": 1,
-  "value": "100"
+  "productId": 2,
+  "attributeId": 2,
+  "valueUz": "100",
+  "valueRu": "100",
+  "valueEn": "100"
 }

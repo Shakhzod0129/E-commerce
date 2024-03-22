@@ -1,20 +1,60 @@
-###create
+### careate parent category
 POST http://localhost:8080/category
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA1ODg4OTMsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMDY3NTI5MywiaXNzIjoiS3VuVXpUZXN0In0.PV2Xnoip0KSGRzk8YE8ufXlEaEmGVXmp82_4hpw8rAh6JQtDiOHVLuHnmLdSKombdavx2G7_TUrHYbaA2IdghA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwMTE2MDAsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMTA5ODAwMCwiaXNzIjoiS3VuVXpUZXN0In0.GwBxvxrCH2juFY6qRzi4kguUfHySjlEZadwq-VFnR_VFUUalklw0lB_UWj7UkKtxZ_7wnqOQ3UPEDsExEVpoMA
 
 {
-  "name": "Mi",
-  "parentId": 2
+  "nameUz": "Clothes uz",
+  "nameRu": "Clothes ru",
+  "nameEn": "Clothes en",
+  "orderNumber": 2
+}
+
+
+###careate sub category
+POST http://localhost:8080/category
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwMTE2MDAsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMTA5ODAwMCwiaXNzIjoiS3VuVXpUZXN0In0.GwBxvxrCH2juFY6qRzi4kguUfHySjlEZadwq-VFnR_VFUUalklw0lB_UWj7UkKtxZ_7wnqOQ3UPEDsExEVpoMA
+
+{
+  "nameUz": "Phone uz",
+  "nameRu": "Phone ru",
+  "nameEn": "Phone en",
+  "orderNumber": 1,
+  "parentId":1
+}
+
+###careate sub category
+POST http://localhost:8080/category
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwMTE2MDAsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMTA5ODAwMCwiaXNzIjoiS3VuVXpUZXN0In0.GwBxvxrCH2juFY6qRzi4kguUfHySjlEZadwq-VFnR_VFUUalklw0lB_UWj7UkKtxZ_7wnqOQ3UPEDsExEVpoMA
+
+{
+  "nameUz": "Samsung uz",
+  "nameRu": "Samsung ru",
+  "nameEn": "Samsung en",
+  "orderNumber": 1,
+  "parentId":2
+}
+###
+POST http://localhost:8080/category
+Content-Type: application/json
+#Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA5MTgyMDcsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMjk5MTgwNywiaXNzIjoiS3VuVXpUZXN0In0.KQgfmNcsSmvnq1K19AitDvPl2GkgdV3-UE6labPaZC7LJwxzpCFlqktARc8yfP4jOuclJyDn2IQNAgbXGDQRmQ`
+
+{
+  "name": "Electronic"
 }
 
 ### update
-PUT http://localhost:8080/category/6
+PUT http://localhost:8080/category/3
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA1ODg4OTMsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMDY3NTI5MywiaXNzIjoiS3VuVXpUZXN0In0.PV2Xnoip0KSGRzk8YE8ufXlEaEmGVXmp82_4hpw8rAh6JQtDiOHVLuHnmLdSKombdavx2G7_TUrHYbaA2IdghA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwMTE2MDAsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMTA5ODAwMCwiaXNzIjoiS3VuVXpUZXN0In0.GwBxvxrCH2juFY6qRzi4kguUfHySjlEZadwq-VFnR_VFUUalklw0lB_UWj7UkKtxZ_7wnqOQ3UPEDsExEVpoMA
 
 {
-  "name": "Iphone",
+  "nameUz": "Apple uz",
+  "nameRu": "Apple ru",
+  "nameEn": "Apple en",
+  "orderNumber": 8,
   "parentId": 2
 }
 
@@ -22,16 +62,22 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA1ODg4OTMsImVtYWlsIjoiQ
 ### delete
 DELETE http://localhost:8080/category/1
 Accept-Language: UZ
-Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA1ODg4OTMsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMDY3NTI5MywiaXNzIjoiS3VuVXpUZXN0In0.PV2Xnoip0KSGRzk8YE8ufXlEaEmGVXmp82_4hpw8rAh6JQtDiOHVLuHnmLdSKombdavx2G7_TUrHYbaA2IdghA
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwMTE2MDAsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMTA5ODAwMCwiaXNzIjoiS3VuVXpUZXN0In0.GwBxvxrCH2juFY6qRzi4kguUfHySjlEZadwq-VFnR_VFUUalklw0lB_UWj7UkKtxZ_7wnqOQ3UPEDsExEVpoMA
 
 ### List
 GET http://localhost:8080/category/list
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwMTE2MDAsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMTA5ODAwMCwiaXNzIjoiS3VuVXpUZXN0In0.GwBxvxrCH2juFY6qRzi4kguUfHySjlEZadwq-VFnR_VFUUalklw0lB_UWj7UkKtxZ_7wnqOQ3UPEDsExEVpoMA
 
 ### list by parent id
-GET http://localhost:8080/category/parent/1
+GET http://localhost:8080/category/parentId/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwMTE2MDAsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMTA5ODAwMCwiaXNzIjoiS3VuVXpUZXN0In0.GwBxvxrCH2juFY6qRzi4kguUfHySjlEZadwq-VFnR_VFUUalklw0lB_UWj7UkKtxZ_7wnqOQ3UPEDsExEVpoMA
 
 ### search
 GET http://localhost:8080/category/categories/search?query=ele
+
+###
+GET http://localhost:8080/category/getByLang
+Accept-Language: RU
 
 
 

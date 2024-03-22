@@ -26,8 +26,12 @@ public class ProductAttributeEntity {
     @JoinColumn(name = "attribute_id",insertable = false,updatable = false)
     private AttributeEntity attribute;
 
-    @Column(name = "value")
-    private String value;
+    @Column(name = "value_uz",columnDefinition = "text")
+    private String valueUz;
+    @Column(name = "value_ru",columnDefinition = "text")
+    private String valueRu;
+    @Column(name = "value_en",columnDefinition = "text")
+    private String valueEn;
 
     // Getters va setters
 }

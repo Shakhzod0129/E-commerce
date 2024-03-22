@@ -5,6 +5,7 @@ import com.example.Ecommerce.dto.category.CreateCategoryDTO;
 import com.example.Ecommerce.enums.AppLanguage;
 import com.example.Ecommerce.service.CategoryService;
 import io.swagger.v3.oas.annotations.Operation;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -22,7 +23,7 @@ public class CategoryController {
     @Operation(summary = "Api for registration", description = "this api used for authorization")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("")
-    public ResponseEntity<?> create(@RequestBody CreateCategoryDTO dto,
+    public ResponseEntity<?> create(@Valid @RequestBody CreateCategoryDTO dto,
                                     @RequestHeader(value = "Accept-Language", defaultValue = "UZ") AppLanguage language) {
 
         return ResponseEntity.ok(categoryService.create(dto, language));
@@ -48,21 +49,30 @@ public class CategoryController {
     }
 
     @GetMapping("/list")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<CategoryDTO>> getCategoryList() {
         List<CategoryDTO> categoryDTOList = categoryService.getAllCategories();
         return ResponseEntity.ok(categoryDTOList);
     }
 
-    @GetMapping("/parent/{parentId}")
+    @GetMapping("/parentId/{parentId}")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     public ResponseEntity<List<CategoryDTO>> getCategoriesByParentId(@PathVariable Long parentId) {
         List<CategoryDTO> categories = categoryService.listByParentId(parentId);
         return ResponseEntity.ok(categories);
     }
 
-    @GetMapping("/categories/search")
-    public ResponseEntity<List<CategoryDTO>> searchCategories(@RequestParam String query,
-                                                              @RequestParam(required = false, defaultValue = "UZ") AppLanguage language) {
-        List<CategoryDTO> categories = categoryService.searchCategories(query, language);
+    @GetMapping("/getByLang")
+    public ResponseEntity<List<CategoryDTO>> getByLang(@RequestHeader(value = "Accept-Language", defaultValue = "UZ") AppLanguage language) {
+        List<CategoryDTO> categories = categoryService.getByLang(language);
         return ResponseEntity.ok(categories);
     }
+
+
+//    @GetMapping("/categories/search")
+//    public ResponseEntity<List<CategoryDTO>> searchCategories(@RequestParam String query,
+//                                                              @RequestParam(required = false, defaultValue = "UZ") AppLanguage language) {
+//        List<CategoryDTO> categories = categoryService.searchCategories(query, language);
+//        return ResponseEntity.ok(categories);
+//    }
 }

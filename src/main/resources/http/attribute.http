@@ -1,9 +1,12 @@
 ### create
 POST http://localhost:8080/attribute
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwMTE2MDAsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMTA5ODAwMCwiaXNzIjoiS3VuVXpUZXN0In0.GwBxvxrCH2juFY6qRzi4kguUfHySjlEZadwq-VFnR_VFUUalklw0lB_UWj7UkKtxZ_7wnqOQ3UPEDsExEVpoMA
 
 {
-  "name": "width1222"
+  "nameUz": "Width uz",
+  "nameRu": "Width ru",
+  "nameEn": "Width en"
 }
 
 

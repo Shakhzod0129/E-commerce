@@ -1,10 +1,14 @@
 package com.example.Ecommerce.entity;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 @Entity
-@Table(name = "product_categories")
-public class ProductCategory {
+@Table(name = "product_category")
+public class    ProductAndCategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -20,5 +24,6 @@ public class ProductCategory {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id",insertable = false,updatable = false)
     private CategoryEntity category;
+
 
 }

@@ -28,8 +28,8 @@ public class SpringSecurityConfig {
             "/auth/verification/email/*",
             "/auth/registration",
             "/profile/verification/email/*",
-            "/category/*",
-            "/category/**",
+    //            "/category/*",
+                "/category/getByLang",
 
             "/v2/api-docs",
             "/configuration/ui",
@@ -42,12 +42,14 @@ public class SpringSecurityConfig {
             "/swagger-resources/**",
             "/comment/replyList/*",
 
-            "/product/*",
-            "/product_attribute/*",
-            "/attribute/*",
-            "/attribute/**",
+            "/product/getByPaginationByCategoryId",
+//            "/product_attribute/*",
+//            "/attribute/*",
+//            "/attribute/**",
             "/attach/**",
             "/attach/adm/**",
+//            "/store/*",
+//            "/store/**"
 
     };
 

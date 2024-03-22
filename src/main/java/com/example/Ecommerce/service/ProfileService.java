@@ -1,8 +1,8 @@
 package com.example.Ecommerce.service;
 
-import com.example.Ecommerce.dto.CreatedProfileDTO;
-import com.example.Ecommerce.dto.ProfileDTO;
-import com.example.Ecommerce.dto.UpdateProfileDTO;
+import com.example.Ecommerce.dto.profile.CreatedProfileDTO;
+import com.example.Ecommerce.dto.profile.ProfileDTO;
+import com.example.Ecommerce.dto.profile.UpdateProfileDTO;
 import com.example.Ecommerce.dto.extre.JWTDTO;
 import com.example.Ecommerce.entity.ProfileEntity;
 import com.example.Ecommerce.enums.AppLanguage;
@@ -136,7 +136,7 @@ public class ProfileService {
      * this method is used to change profile picture 👇🏻
      */
     public Boolean updateProfileAttach(Long profileId, MultipartFile file, AppLanguage language) {
-        String oldAttach = get(profileId, language).getImageId();
+        String oldAttach = get(profileId, language).getAttachId();
         Integer effectiveRows = profileRepository.updatePhoto(profileId, attachService.save(file).getId());
         if (oldAttach != null) {
             attachService.delete(oldAttach);
