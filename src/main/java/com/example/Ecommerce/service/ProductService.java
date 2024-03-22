@@ -47,6 +47,9 @@ public class ProductService {
     @Autowired
     private AttachService attachService;
 
+    @Autowired
+    private ProductAndTagNameService productAndTagNameService;
+
 
     public String create(Long profileId, CreateProductDTO dto, AppLanguage language) {
 
@@ -67,6 +70,8 @@ public class ProductService {
 
         productAndCategoryService.create(entity.getId(), dto.getCategoryId(), language);
         productAndAttachService.create(entity.getId(), dto.getAttachId());
+        productAndTagNameService.create(entity.getId(), dto.getTagName());
+
 
 
         return "Product has created";

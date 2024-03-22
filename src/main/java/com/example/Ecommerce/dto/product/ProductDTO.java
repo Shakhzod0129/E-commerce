@@ -3,7 +3,6 @@ package com.example.Ecommerce.dto.product;
 import com.example.Ecommerce.dto.store.StoreDTO;
 import com.example.Ecommerce.enums.ProductStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -38,4 +37,5 @@ public class ProductDTO {
     private String productAttachJson;
     private String productAttributeJson;
     private String productCategoryJson;
+    private List<Long> tagName;
 }
