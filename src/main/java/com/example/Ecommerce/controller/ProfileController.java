@@ -1,9 +1,9 @@
 package com.example.Ecommerce.controller;
 
 
-import com.example.Ecommerce.dto.CreatedProfileDTO;
-import com.example.Ecommerce.dto.ProfileDTO;
-import com.example.Ecommerce.dto.UpdateProfileDTO;
+import com.example.Ecommerce.dto.profile.CreatedProfileDTO;
+import com.example.Ecommerce.dto.profile.ProfileDTO;
+import com.example.Ecommerce.dto.profile.UpdateProfileDTO;
 import com.example.Ecommerce.enums.AppLanguage;
 import com.example.Ecommerce.service.ProfileService;
 import com.example.Ecommerce.utils.SpringSecurityUtil;

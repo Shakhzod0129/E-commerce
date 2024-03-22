@@ -1,7 +1,7 @@
 package com.example.Ecommerce.controller;
 
 
-import com.example.Ecommerce.dto.ProfileDTO;
+import com.example.Ecommerce.dto.profile.ProfileDTO;
 import com.example.Ecommerce.dto.auth.AuthDTO;
 import com.example.Ecommerce.dto.auth.RegistrationDTO;
 import com.example.Ecommerce.enums.AppLanguage;

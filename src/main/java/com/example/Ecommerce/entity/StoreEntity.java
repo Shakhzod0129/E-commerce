@@ -12,7 +12,8 @@ import java.time.LocalDateTime;
 @Table(name = "store")
 public class StoreEntity extends BaseEntity{
 
-    @Column(name = "name")
+
+    @Column(name = "name",unique = true,nullable = false)
     private String name;
 
     @Column(name = "profile_id")
@@ -21,8 +22,12 @@ public class StoreEntity extends BaseEntity{
     @JoinColumn(name = "profile_Id",insertable = false,updatable = false)
     private ProfileEntity profile;
 
-    @Column(name = "description")
-    private String description;
+    @Column(name = "description_uz",nullable = false)
+    private String descriptionUz;
+    @Column(name = "description_ru",nullable = false)
+    private String descriptionRu;
+    @Column(name = "description_en",nullable = false)
+    private String descriptionEn;
 
     @Column(name = "quantity_of_product")
     private Integer quantityOfProduct=0;

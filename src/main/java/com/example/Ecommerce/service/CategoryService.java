@@ -12,7 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -32,8 +34,11 @@ public class CategoryService {
             entity.setParentId(categoryEntity.getId());
         }
 
-        entity.setName(dto.getName());
+        entity.setNameUz(dto.getNameUz());
+        entity.setNameRu(dto.getNameRu());
+        entity.setNameEn(dto.getNameEn());
         entity.setStatus(Status.ACTIVE);
+        entity.setOrderNumber(dto.getOrderNumber());
         entity.setCreatedDate(LocalDateTime.now());
 
         categoryRepository.save(entity);
@@ -48,7 +53,10 @@ public class CategoryService {
             entity.setParentId(parentEntity.getId());
         }
 
-        entity.setName(dto.getName());
+        entity.setNameUz(dto.getNameUz());
+        entity.setNameRu(dto.getNameRu());
+        entity.setNameEn(dto.getNameEn());
+        entity.setOrderNumber(dto.getOrderNumber());
         entity.setUpdatedDate(LocalDateTime.now());
 
         categoryRepository.save(entity);
@@ -76,20 +84,70 @@ public class CategoryService {
                 .collect(Collectors.toList());
     }
 
-    public List<CategoryDTO> searchCategories(String query, AppLanguage language) {
-        List<CategoryEntity> categories = categoryRepository.findByNameContainingIgnoreCase(query);
-        return categories.stream()
-                .map(this::mapToDTO)
-                .collect(Collectors.toList());
+//    public List<CategoryDTO> searchCategories(String query, AppLanguage language) {
+//        List<CategoryEntity> categories = categoryRepository.findByNameContainingIgnoreCase(query);
+//        return categories.stream()
+//                .map(this::mapToDTO)
+//                .collect(Collectors.toList());
+//    }
+
+    public CategoryDTO getByLangById(Long categoryId, AppLanguage language){
+        Optional<CategoryEntity> optional=categoryRepository.getCategoryEntityById(categoryId);
+        if (optional.isEmpty()){
+            log.warn("Category not found");
+            throw new AppBadException(resourceBundleService.getMessage("category.not.found",language));
+        }
+
+        CategoryEntity categoryEntity = optional.get();
+        CategoryDTO dto=new CategoryDTO();
+
+        dto.setId(categoryEntity.getId());
+        switch (language){
+            case UZ -> dto.setName(categoryEntity.getNameUz());
+            case RU -> dto.setName(categoryEntity.getNameRu());
+            case EN -> dto.setName(categoryEntity.getNameEn());
+        }
+        return dto;
+
     }
+
+    public List<CategoryDTO> getByLang(AppLanguage language) {
+        List<CategoryEntity> categoryEntityList = categoryRepository.getCategoryEntitiesByOrderNumber();
+
+        List<CategoryDTO> dtoList=new ArrayList<>();
+
+        for (CategoryEntity categoryEntity : categoryEntityList) {
+            CategoryDTO dto=new CategoryDTO();
+            switch (language){
+                case UZ -> dto.setName(categoryEntity.getNameUz());
+                case RU -> dto.setName(categoryEntity.getNameRu());
+                case EN -> dto.setName(categoryEntity.getNameEn());
+            }
+            dtoList.add(dto);
+        }
+
+        return dtoList;
+    }
+
 
 
     private CategoryDTO mapToDTO(CategoryEntity categoryEntity) {
         CategoryDTO dto = new CategoryDTO();
         dto.setId(categoryEntity.getId());
-        dto.setName(categoryEntity.getName());
+        dto.setNameUz(categoryEntity.getNameUz());
+        dto.setNameRu(categoryEntity.getNameRu());
+        dto.setNameEn(categoryEntity.getNameEn());
         dto.setParentId(categoryEntity.getParentId());
         dto.setCreatedDate(categoryEntity.getCreatedDate());
+        return dto;
+    }
+    private CategoryDTO toDTO(CategoryEntity categoryEntity) {
+        CategoryDTO dto = new CategoryDTO();
+//        dto.setId(categoryEntity.getId());
+        dto.setNameUz(categoryEntity.getNameUz());
+        dto.setNameRu(categoryEntity.getNameRu());
+        dto.setNameEn(categoryEntity.getNameEn());
+//        dto.setCreatedDate(categoryEntity.getCreatedDate());
         return dto;
     }
 

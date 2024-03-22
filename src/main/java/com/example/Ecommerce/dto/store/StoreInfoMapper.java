@@ -8,7 +8,10 @@ import java.time.LocalDateTime;
 public interface StoreInfoMapper {
     Long getStoreId();
     String getStoreName();
-    String getStoreDescription();
+//    String getStoreDescription();
+    String getStoreDescriptionUz();
+    String getStoreDescriptionRu();
+    String getStoreDescriptionEn();
     Status getStoreStatus();
     Long getStoreCommentCount();
     LocalDateTime getStoreCreatedDate();

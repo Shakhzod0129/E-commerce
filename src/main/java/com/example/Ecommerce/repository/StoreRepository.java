@@ -18,7 +18,9 @@ public interface StoreRepository extends CrudRepository<StoreEntity,Long> {
 
         @Query(value = "select s.id                  as storeId,\n" +
                 "       s.name                as storeName,\n" +
-                "       s.description         as storeDescription,\n" +
+                "       s.description_uz         as storeDescriptionUz,\n" +
+                "       s.description_ru        as storeDescriptionRu,\n" +
+                "       s.description_en         as storeDescriptionEn,\n" +
                 "       s.status              as storetStatus,\n" +
                 "       s.comment_count       as storeCommentCount,\n" +
                 "       s.created_date        as storeCreatedDate,\n" +

@@ -9,6 +9,7 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Transactional
 public interface CategoryRepository extends CrudRepository<CategoryEntity,Long> {
@@ -21,13 +22,19 @@ public interface CategoryRepository extends CrudRepository<CategoryEntity,Long> 
     @Query("from CategoryEntity where visible=true ")
     List<CategoryEntity> categoryList();
 
+    @Query("from CategoryEntity where visible=true ")
+    List<CategoryEntity> getCategoryEntitiesByOrderNumber();
+
     @Query("from CategoryEntity where visible=true and parentId=?1 ")
     List<CategoryEntity> findByParentId(Long parentId);
+
+    @Query("from CategoryEntity where id=?1 and visible=true ")
+    Optional<CategoryEntity> getCategoryEntityById(Long categoryId);
 
 //    @Query("from CategoryEntity where visible=true ")
 //    List<CategoryEntity> findByNameContainingIgnoreCase(String query);
 
-    @Query("from CategoryEntity where visible=true and lower(name) like lower(concat('%', :query, '%'))")
-    List<CategoryEntity> findByNameContainingIgnoreCase(@Param("query") String query);
+//    @Query("from CategoryEntity where visible=true and lower(name) like lower(concat('%', :query, '%'))")
+//    List<CategoryEntity> findByNameContainingIgnoreCase(@Param("query") String query);
 
 }

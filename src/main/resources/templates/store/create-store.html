@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Store</title>
+    <style>
+        /* CSSni shu yerga yozing */
+    </style>
+</head>
+<body>
+<h1>Create Store</h1>
+    <form id="createStoreForm" action="/store/create-store" method="post">
+
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required><br>
+    <label for="profileId">Profile ID:</label>
+    <input type="text" id="profileId" name="profileId" required><br>
+    <label for="description">Description:</label><br>
+    <textarea id="description" name="description" rows="4" cols="50" required></textarea><br>
+    <label for="attachId">Attach ID:</label>
+    <input type="text" id="attachId" name="attachId" required><br>
+    <button type="submit">Create</button>
+</form>
+
+<div id="message"></div>
+
+<script>
+    document.getElementById("createStoreForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+        var formData = new FormData(this);
+
+        fetch('/store/create-store', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(Object.fromEntries(formData))
+        })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("message").innerText = data;
+            })
+            .catch(error => console.error('Error:', error));
+    });
+</script>
+</body>
+</html>

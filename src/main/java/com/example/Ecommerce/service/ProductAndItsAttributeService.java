@@ -1,6 +1,6 @@
 package com.example.Ecommerce.service;
 
-import com.example.Ecommerce.dto.ProductAndItsAttributeDTO;
+import com.example.Ecommerce.dto.product.ProductAndItsAttributeDTO;
 import com.example.Ecommerce.entity.ProductAttributeEntity;
 import com.example.Ecommerce.repository.ProductAndItsAttributeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +12,15 @@ public class ProductAndItsAttributeService {
     @Autowired
     private ProductAndItsAttributeRepository productAndItsAttributeRepository;
 
-    public String create(ProductAndItsAttributeDTO productDTO) {
+    public String create(ProductAndItsAttributeDTO dto) {
 
         ProductAttributeEntity entity=new ProductAttributeEntity();
 
-        entity.setProductId(productDTO.getProductId());
-        entity.setAttributeId(productDTO.getAttributeId());
-        entity.setValue(productDTO.getValue());
+        entity.setProductId(dto.getProductId());
+        entity.setAttributeId(dto.getAttributeId());
+        entity.setValueUz(dto.getValueUz());
+        entity.setValueRu(dto.getValueRu());
+        entity.setValueEn(dto.getValueEn());
         productAndItsAttributeRepository.save(entity);
 
         return "Created";

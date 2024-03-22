@@ -13,11 +13,11 @@ import java.util.Set;
 @Table(name = "attributes")
 public class AttributeEntity extends BaseEntity {
 
+    @Column(name = "name_uz",nullable = false,unique = true)
+    private String nameUz;
+    @Column(name = "name_ru",nullable = false,unique = true)
+    private String nameRu;
+    @Column(name = "name_en",nullable = false,unique = true)
+    private String nameEn;
 
-    @Column(name = "attribute_name")
-    private String attributeName;
-
-    // Boshqa xususiyatlarga oid ma'lumotlar
-
-    // Getters va setters
 }

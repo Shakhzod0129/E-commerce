@@ -1,12 +1,12 @@
 package com.example.Ecommerce.controller;
 
-import com.example.Ecommerce.dto.ProductAndItsAttributeDTO;
-import com.example.Ecommerce.dto.ProductDTO;
+import com.example.Ecommerce.dto.product.ProductAndItsAttributeDTO;
 import com.example.Ecommerce.service.ProductAndItsAttributeService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +20,7 @@ public class ProductAndItsAttributeController {
     private ProductAndItsAttributeService productAndItsAttributeService;
 
     @Operation( summary = "Api for create product_attribute", description = "this api used for product_attribute")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/create")
     public ResponseEntity<?> create(@RequestBody ProductAndItsAttributeDTO productDTO) {
         return ResponseEntity.ok(productAndItsAttributeService.create(productDTO));

@@ -1,4 +1,4 @@
-package com.example.Ecommerce.dto;
+package com.example.Ecommerce.dto.profile;
 
 import com.example.Ecommerce.enums.Gender;
 import com.example.Ecommerce.enums.ProfileRole;

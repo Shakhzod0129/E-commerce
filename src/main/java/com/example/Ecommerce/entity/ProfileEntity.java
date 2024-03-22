@@ -22,7 +22,7 @@ public class ProfileEntity extends BaseEntity {
     @Column(name = "surname")
     private String surname;
 
-    @Column(name = "email")
+    @Column(name = "email",unique = true,nullable = false)
     private String email;
 
     @Column(name = "phone_number")
@@ -44,7 +44,7 @@ public class ProfileEntity extends BaseEntity {
     private ProfileRole role;
 
     @Column(name = "attcha_Id")
-    private String imageId;
+    private String attachId;
 
     @ManyToOne
     @JoinColumn(name = "attach_Id",insertable = false,updatable = false)

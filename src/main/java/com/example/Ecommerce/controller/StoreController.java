@@ -36,9 +36,9 @@ public class StoreController {
 
 
     @Operation(summary = "Update store by ID", description = "Update an existing store by its ID")
-    @PreAuthorize("hasRole('ROLE_SELLER')")
+    @PreAuthorize("hasRole('ROLE_USER')")
     @PutMapping("/{storeId}")
-    public ResponseEntity<?> updateCategory(@PathVariable Long storeId,
+    public ResponseEntity<?> updateStoreByOwner(@PathVariable Long storeId,
                                             @Valid @RequestBody UpdateStoreDTO dto,
                                             @RequestHeader(value = "Accept-Language", defaultValue = "UZ") AppLanguage language) {
         Long profileId = SpringSecurityUtil.getCurrentUser().getId();

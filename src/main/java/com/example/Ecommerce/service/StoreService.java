@@ -1,6 +1,6 @@
 package com.example.Ecommerce.service;
 
-import com.example.Ecommerce.dto.ProfileDTO;
+import com.example.Ecommerce.dto.profile.ProfileDTO;
 import com.example.Ecommerce.dto.extre.AttachDTO;
 import com.example.Ecommerce.dto.store.CreateStoreDTO;
 import com.example.Ecommerce.dto.store.StoreDTO;
@@ -10,7 +10,6 @@ import com.example.Ecommerce.entity.AttachEntity;
 import com.example.Ecommerce.entity.ProfileEntity;
 import com.example.Ecommerce.entity.StoreEntity;
 import com.example.Ecommerce.enums.AppLanguage;
-import com.example.Ecommerce.enums.ProfileRole;
 import com.example.Ecommerce.exp.AppBadException;
 import com.example.Ecommerce.repository.StoreRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -48,9 +47,12 @@ public class StoreService {
         ProfileEntity profileEntity = profileService.get(dto.getProfileId(), language);
         AttachEntity attachEntity = attachService.get(dto.getAttachId());
 
+
         entity.setName(dto.getName());
+        entity.setDescriptionUz(dto.getDescriptionUz());
+        entity.setDescriptionRu(dto.getDescriptionRu());
+        entity.setDescriptionEn(dto.getDescriptionEn());
         entity.setProfileId(profileEntity.getId());
-        entity.setDescription(dto.getDescription());
         entity.setAttachId(attachEntity.getId());
         storeRepository.save(entity);
 
@@ -62,26 +64,18 @@ public class StoreService {
     public String updateStoreByOwner(Long storeId, Long profileId, UpdateStoreDTO dto, AppLanguage language) {
         Optional<StoreEntity> optional = storeRepository.findByIdAndProfileId(storeId, profileId);
 
+        AttachEntity attachEntity = attachService.get(dto.getAttachId());
         if (optional.isEmpty()) {
             log.warn("Store not found");
             throw new AppBadException(resourceBundleService.getMessage("store.not.allowed", language));
         }
 
         StoreEntity entity = optional.get();
-
-        // Ma'lumotlarni yangilash
-        if (dto.getName() != null) {
-            entity.setName(dto.getName());
-        }
-        if (dto.getDescription() != null) {
-            entity.setDescription(dto.getDescription());
-        }
-        if (dto.getAttachId() != null) {
-            AttachEntity attachEntity = attachService.get(dto.getAttachId());
-            entity.setAttachId(attachEntity.getId());
-        }
-
-        // Updated date ni yangilash
+        entity.setName(dto.getName());
+        entity.setDescriptionUz(dto.getDescriptionUz());
+        entity.setDescriptionRu(dto.getDescriptionRu());
+        entity.setDescriptionEn(dto.getDescriptionEn());
+        entity.setAttachId(attachEntity.getId());
         entity.setUpdatedDate(LocalDateTime.now());
 
         // StoreEntity ni saqlash
@@ -117,7 +111,11 @@ public class StoreService {
 
         dto.setId(entity.getId());
         dto.setName(entity.getName());
-        dto.setDescription(entity.getDescription());
+        switch (language){
+            case UZ ->dto.setDescription(entity.getDescriptionUz());
+            case RU -> dto.setDescription(entity.getDescriptionRu());
+            case EN -> dto.setDescription(entity.getDescriptionEn());
+        }
         dto.setAttachId(entity.getAttachId());
         dto.setStatus(entity.getStatus());
         dto.setProfileId(entity.getProfileId());
@@ -167,7 +165,11 @@ public class StoreService {
             attachDTO.setUrl(attachEntity.getUrl());
             storeDTO.setAttach(attachDTO);
         }
-        storeDTO.setDescription(storeInfoMapper.getStoreDescription());
+        switch (language){
+            case UZ -> storeDTO.setDescription(storeInfoMapper.getStoreDescriptionUz());
+            case RU -> storeDTO.setDescription(storeInfoMapper.getStoreDescriptionRu());
+            case EN -> storeDTO.setDescription(storeInfoMapper.getStoreDescriptionEn());
+        }
         storeDTO.setCountOfComment(storeInfoMapper.getStoreCommentCount());
         storeDTO.setStatus(storeInfoMapper.getStoreStatus());
         storeDTO.setQuantityOfProduct(storeInfoMapper.getStoreQuantityOfProduct());

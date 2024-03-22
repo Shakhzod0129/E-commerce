@@ -1,9 +1,60 @@
 ###
 POST http://localhost:8080/product/create
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwMjMwMTcsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzEzMDk2NjE3LCJpc3MiOiJLdW5VelRlc3QifQ.C1oeDgNeQbeYXqa6hFJxUZ4NOtudUPU-tLrOqdz-t4W67bYP3ltOGvawiZoSc_mpb62u4pk8R2i_Hoajs7hU3Q
 
 {
-  "name": "Phone",
-  "price": 34400
-
+  "storeId": 1,
+  "nameUz": "Kurtka uz",
+  "nameRu": "Kurtka ru",
+  "nameEn": "Kurtk en",
+  "descriptionUz": "Kurtka description uz",
+  "descriptionRu": "Kurtka description ru",
+  "descriptionEn": "Kurtka description en",
+  "price": 5000,
+  "categoryId": [1],
+  "attachId": ["71d54059-69ad-4023-bd66-ec640d29707a","443c3550-7b1e-4673-9b7b-79e0264be49a"]
 }
+
+### update
+PUT http://localhost:8080/product/6
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA5MjU5ODIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9TRUxMRVIiLCJleHAiOjE3MTEwMTIzODIsImlzcyI6Ikt1blV6VGVzdCJ9.TJoUbuJrrfG4btK9prV5xqoH45_mwgLbPCQxUOYHwHNxkDEFNFBuNTglb3VeOUlUdhFuryOisjP9v9nPyKks8A
+
+{
+  "nameUz": "Ruchka uz1",
+  "nameRu": "Ruchka ru1",
+  "nameEn": "Ruchka en1",
+  "descriptionUz": "Ruchka description uz2",
+  "descriptionRu": "Ruchka description ru1",
+  "descriptionEn": "Ruchka description en1",
+  "price": 5000,
+  "categoryId": [1,5],
+  "attachId": ["560deb0e-aa5b-4bbc-bc01-ebc39e636a40"]
+}
+
+### delete
+DELETE http://localhost:8080/product/3
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA5MjU5ODIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9TRUxMRVIiLCJleHAiOjE3MTEwMTIzODIsImlzcyI6Ikt1blV6VGVzdCJ9.TJoUbuJrrfG4btK9prV5xqoH45_mwgLbPCQxUOYHwHNxkDEFNFBuNTglb3VeOUlUdhFuryOisjP9v9nPyKks8A
+
+
+### pagination
+GET http://localhost:8080/product/getByPagination
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwOTk1MjEsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMzE3MzEyMSwiaXNzIjoiS3VuVXpUZXN0In0.alEj_L1I2-HqATxt1_6T5DdSXRduKGECf-IpJBBBD5FddzEBIL9Cu9JBIBmgbHWUkQFD_zsrLgkr3utzrNlEhA
+
+### pagination by categoryId
+GET http://localhost:8080/product/getByPaginationByCategoryId?categoryId=1
+
+
+
+
+
+
+
+
+
+
+
+
+
+

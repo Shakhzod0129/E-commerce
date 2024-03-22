@@ -1,7 +1,7 @@
 package com.example.Ecommerce.service;
 
 
-import com.example.Ecommerce.dto.ProfileDTO;
+import com.example.Ecommerce.dto.profile.ProfileDTO;
 import com.example.Ecommerce.dto.auth.AuthDTO;
 import com.example.Ecommerce.dto.auth.RegistrationDTO;
 import com.example.Ecommerce.dto.extre.JWTDTO;
@@ -132,7 +132,7 @@ public class AuthService {
         entity.setRole(ProfileRole.ROLE_USER);
         entity.setPhoneNumber(dto.getPhone());
         entity.setGender(dto.getGender());
-        entity.setImageId(dto.getImageId());
+        entity.setAttachId(dto.getImageId());
         profileRepository.save(entity);
 
         String jwt = JWTUtil.encodeForEmail(Math.toIntExact(entity.getId()));
