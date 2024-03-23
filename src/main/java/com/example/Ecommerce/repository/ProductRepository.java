@@ -9,6 +9,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
+import java.util.List;
+
 public interface ProductRepository extends CrudRepository<ProductEntity,Long> {
 
 
@@ -80,4 +82,26 @@ public interface ProductRepository extends CrudRepository<ProductEntity,Long> {
             "         inner join public.product_category pc on p.id = pc.product_id\n" +
             "where pc.category_id=?1",nativeQuery = true)
     Page<ProductInfoMapper> findByCategoryId(Long categoryId, Pageable pageable);
+
+
+    @Query(value = "SELECT p.id                 as productId,\n" +
+            "       p.description_uz     as productDescriptionUz,\n" +
+            "       p.description_ru     as productDescriptionRu,\n" +
+            "       p.description_en     as productDescriptionEn,\n" +
+            "       p.name_uz            as productNameUz,\n" +
+            "       p.name_ru            as productNameRu,\n" +
+            "       p.name_en            as productNameEn,\n" +
+            "       p.count_comments     as productCommentCount,\n" +
+            "       p.count_orders       as productOrderCount,\n" +
+            "       p.price              as ProductPrice,\n" +
+            "       p.rate               as productRate,\n" +
+            "       p.quantity           as productQuantity,\n" +
+            "       p.store_id           as productStoreId,\n" +
+            "       pc.category_id       as productCategoryId\n" +
+            "FROM product p\n" +
+            "         INNER JOIN product_category pc ON p.id = pc.product_id\n" +
+            "WHERE pc.category_id = ?1\n" +
+            "ORDER BY p.created_date DESC\n" +
+            "LIMIT 10",nativeQuery = true)
+    List<ProductInfoMapper> getLast10ProductsByCategoryId(Long categoryId);
 }

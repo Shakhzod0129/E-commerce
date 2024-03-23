@@ -15,6 +15,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/product")
 public class ProductController {
@@ -69,5 +71,12 @@ public class ProductController {
                                                                             @RequestParam(value = "size", defaultValue = "10") Integer size,
                                                                             @RequestHeader(value = "Accept-Language", defaultValue = "UZ") AppLanguage language) {
         return ResponseEntity.ok(productService.paginationByCategoryId(page, size,categoryId, language));
+    }
+
+    @Operation(summary = "Api for get", description = "this api used for get product by Pagination")
+    @GetMapping("/getLast10Product")
+    public ResponseEntity<List<ProductDTO>> getLast10Product(@RequestParam Long categoryId,
+                                                                        @RequestHeader(value = "Accept-Language", defaultValue = "UZ") AppLanguage language) {
+        return ResponseEntity.ok(productService.getLast10Product(categoryId, language));
     }
 }

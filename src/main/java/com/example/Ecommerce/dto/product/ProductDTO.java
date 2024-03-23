@@ -1,5 +1,6 @@
 package com.example.Ecommerce.dto.product;
 
+import com.example.Ecommerce.dto.category.CategoryDTO;
 import com.example.Ecommerce.dto.store.StoreDTO;
 import com.example.Ecommerce.enums.ProductStatus;
 import com.fasterxml.jackson.annotation.JsonInclude;
@@ -38,4 +39,5 @@ public class ProductDTO {
     private String productAttributeJson;
     private String productCategoryJson;
     private List<Long> tagName;
+    private CategoryDTO category;
 }

@@ -46,7 +46,8 @@ Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEwOTk1MjEsImVtYWlsIjoiQ
 ### pagination by categoryId
 GET http://localhost:8080/product/getByPaginationByCategoryId?categoryId=1
 
-
+### get last 10
+GET http://localhost:8080/product/getByPaginationByCategoryId?categoryId=1
 
 
 

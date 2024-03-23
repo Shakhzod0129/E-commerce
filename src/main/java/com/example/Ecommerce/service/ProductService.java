@@ -1,5 +1,6 @@
 package com.example.Ecommerce.service;
 
+import com.example.Ecommerce.dto.category.CategoryDTO;
 import com.example.Ecommerce.dto.extre.AttachDTO;
 import com.example.Ecommerce.dto.product.CreateProductDTO;
 import com.example.Ecommerce.dto.product.ProductDTO;
@@ -8,6 +9,7 @@ import com.example.Ecommerce.dto.product.UpdateProductDTO;
 import com.example.Ecommerce.dto.store.StoreDTO;
 import com.example.Ecommerce.dto.store.StoreInfoMapper;
 import com.example.Ecommerce.entity.AttachEntity;
+import com.example.Ecommerce.entity.CategoryEntity;
 import com.example.Ecommerce.entity.ProductEntity;
 import com.example.Ecommerce.entity.StoreEntity;
 import com.example.Ecommerce.enums.AppLanguage;
@@ -141,6 +143,18 @@ public class ProductService {
         return new PageImpl<>(dtoList, pageable, byCategoryId.getTotalElements());
     }
 
+    public List<ProductDTO> getLast10Product(Long categoryId,AppLanguage language){
+        List<ProductInfoMapper> list = productRepository.getLast10ProductsByCategoryId(categoryId);
+        List<ProductDTO> dtoList=new ArrayList<>();
+
+        for (ProductInfoMapper productInfoMapper : list) {
+            dtoList.add(toDTO(productInfoMapper,language));
+        }
+
+        return dtoList;
+    }
+
+
 
     public ProductDTO toDTO(ProductInfoMapper mapper, AppLanguage language) {
         ProductDTO dto = new ProductDTO();
@@ -172,6 +186,15 @@ public class ProductService {
         storeDTO.setId(storeEntity.getId());
         storeDTO.setName(storeEntity.getName());
 
+        CategoryEntity categoryEntity = categoryService.get(mapper.getProductCategoryId(), language);
+        CategoryDTO categoryDTO=new CategoryDTO();
+        categoryDTO.setId(categoryEntity.getId());
+        switch (language){
+            case UZ -> categoryDTO.setName(categoryEntity.getNameUz());
+            case RU -> categoryDTO.setName(categoryEntity.getNameRu());
+            case EN -> categoryDTO.setName(categoryEntity.getNameEn());
+        }
+        dto.setCategory(categoryDTO);
         dto.setStore(storeDTO);
 
         return dto;
