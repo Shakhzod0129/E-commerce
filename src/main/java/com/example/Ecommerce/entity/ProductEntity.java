@@ -21,12 +21,6 @@ public class ProductEntity extends BaseEntity {
     @JoinColumn(name = "store_id", insertable = false, updatable = false)
     private StoreEntity store;
 
-    @Column(name = "category_id")
-    private Long categoryId;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "category_id", insertable = false, updatable = false)
-    private CategoryEntity category;
-
     @Column(name = "price",nullable = false)
     private Double price;
 
