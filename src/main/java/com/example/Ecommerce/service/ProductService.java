@@ -7,7 +7,6 @@ import com.example.Ecommerce.dto.product.ProductDTO;
 import com.example.Ecommerce.dto.product.ProductInfoMapper;
 import com.example.Ecommerce.dto.product.UpdateProductDTO;
 import com.example.Ecommerce.dto.store.StoreDTO;
-import com.example.Ecommerce.dto.store.StoreInfoMapper;
 import com.example.Ecommerce.entity.AttachEntity;
 import com.example.Ecommerce.entity.CategoryEntity;
 import com.example.Ecommerce.entity.ProductEntity;
@@ -15,7 +14,6 @@ import com.example.Ecommerce.entity.StoreEntity;
 import com.example.Ecommerce.enums.AppLanguage;
 import com.example.Ecommerce.exp.AppBadException;
 import com.example.Ecommerce.repository.ProductRepository;
-import com.fasterxml.jackson.databind.JsonNode;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -26,7 +24,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Slf4j
 @Service

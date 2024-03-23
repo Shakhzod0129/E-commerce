@@ -11,7 +11,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface ProductRepository extends CrudRepository<ProductEntity,Long> {
+public interface ProductRepository extends CrudRepository<ProductEntity, Long> {
 
 
     @Query(value = "select p.id from store s" +
@@ -54,7 +54,7 @@ public interface ProductRepository extends CrudRepository<ProductEntity,Long> {
             "                 inner join public.product pr on pr.id = pc.product_id\n" +
             "        where pr.id = p.id) as productCategoryJson\n" +
             "from product p\n" +
-            "         inner join public.store s on s.id = p.store_id",nativeQuery = true)
+            "         inner join public.store s on s.id = p.store_id", nativeQuery = true)
     Page<ProductInfoMapper> getProductInfo(Pageable pageable);
 
     @Query(value = "select p.id                 as productId,\n" +
@@ -80,7 +80,7 @@ public interface ProductRepository extends CrudRepository<ProductEntity,Long> {
             "from product p\n" +
             "         inner join public.store s on s.id = p.store_id\n" +
             "         inner join public.product_category pc on p.id = pc.product_id\n" +
-            "where pc.category_id=?1",nativeQuery = true)
+            "where pc.category_id=?1", nativeQuery = true)
     Page<ProductInfoMapper> findByCategoryId(Long categoryId, Pageable pageable);
 
 
@@ -102,6 +102,6 @@ public interface ProductRepository extends CrudRepository<ProductEntity,Long> {
             "         INNER JOIN product_category pc ON p.id = pc.product_id\n" +
             "WHERE pc.category_id = ?1\n" +
             "ORDER BY p.created_date DESC\n" +
-            "LIMIT 10",nativeQuery = true)
+            "LIMIT 10", nativeQuery = true)
     List<ProductInfoMapper> getLast10ProductsByCategoryId(Long categoryId);
 }
