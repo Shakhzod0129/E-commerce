@@ -3,7 +3,6 @@ package com.example.Ecommerce.controller;
 import com.example.Ecommerce.dto.product.CreateProductDTO;
 import com.example.Ecommerce.dto.product.ProductDTO;
 import com.example.Ecommerce.dto.product.UpdateProductDTO;
-import com.example.Ecommerce.dto.store.StoreDTO;
 import com.example.Ecommerce.enums.AppLanguage;
 import com.example.Ecommerce.service.ProductService;
 import com.example.Ecommerce.utils.SpringSecurityUtil;
@@ -14,6 +13,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/product")
@@ -69,5 +70,12 @@ public class ProductController {
                                                                             @RequestParam(value = "size", defaultValue = "10") Integer size,
                                                                             @RequestHeader(value = "Accept-Language", defaultValue = "UZ") AppLanguage language) {
         return ResponseEntity.ok(productService.paginationByCategoryId(page, size,categoryId, language));
+    }
+
+    @Operation(summary = "Api for get", description = "this api used for get product by Pagination")
+    @GetMapping("/getLast10Product")
+    public ResponseEntity<List<ProductDTO>> getLast10Product(@RequestParam Long categoryId,
+                                                                        @RequestHeader(value = "Accept-Language", defaultValue = "UZ") AppLanguage language) {
+        return ResponseEntity.ok(productService.getLast10Product(categoryId, language));
     }
 }

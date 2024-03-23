@@ -43,6 +43,7 @@ public class SpringSecurityConfig {
             "/comment/replyList/*",
 
             "/product/getByPaginationByCategoryId",
+            "/product/getLast10Product",
 //            "/product_attribute/*",
 //            "/attribute/*",
 //            "/attribute/**",
