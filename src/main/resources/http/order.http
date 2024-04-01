@@ -1,0 +1,30 @@
+### create
+POST http://localhost:8080/order
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDEyNDIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzEzMjc0ODQyLCJpc3MiOiJLdW5VelRlc3QifQ.hRrlC9uC3TRbZ0KoiGIvkdXX9HhEiyCNoo-V6TicEMTWWt4XAy4w4AYiQNavUZOUXgj9FNtFvhSSE8QpzQZouw
+
+{
+  "cartId": 1,
+  "deliveredAddress": "Chilonzor",
+  "deliveredContact": "36513513"
+}
+
+
+### cancel
+PUT http://localhost:8080/order/cancelByAdmin/1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTA5MTgyMDcsImVtYWlsIjoiQWRtaW5jZWVrMTIzNEBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9BRE1JTiIsImV4cCI6MTcxMjk5MTgwNywiaXNzIjoiS3VuVXpUZXN0In0.KQgfmNcsSmvnq1K19AitDvPl2GkgdV3-UE6labPaZC7LJwxzpCFlqktARc8yfP4jOuclJyDn2IQNAgbXGDQRmQ
+
+### cancel by Owner
+PUT http://localhost:8080/order/cancelByOwner/2
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDEyNDIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzEzMjc0ODQyLCJpc3MiOiJLdW5VelRlc3QifQ.hRrlC9uC3TRbZ0KoiGIvkdXX9HhEiyCNoo-V6TicEMTWWt4XAy4w4AYiQNavUZOUXgj9FNtFvhSSE8QpzQZouw
+
+### get by id by Owner
+GET http://localhost:8080/order/getByOrderId/3
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDEyNDIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzEzMjc0ODQyLCJpc3MiOiJLdW5VelRlc3QifQ.hRrlC9uC3TRbZ0KoiGIvkdXX9HhEiyCNoo-V6TicEMTWWt4XAy4w4AYiQNavUZOUXgj9FNtFvhSSE8QpzQZouw
+
+
+### pagination by owner
+GET http://localhost:8080/order/getByPagination?page=2&size=1
+Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJpYXQiOjE3MTEyMDEyNDIsImVtYWlsIjoidXNlckBnbWFpbC5jb20iLCJyb2xlIjoiUk9MRV9VU0VSIiwiZXhwIjoxNzEzMjc0ODQyLCJpc3MiOiJLdW5VelRlc3QifQ.hRrlC9uC3TRbZ0KoiGIvkdXX9HhEiyCNoo-V6TicEMTWWt4XAy4w4AYiQNavUZOUXgj9FNtFvhSSE8QpzQZouw
+
+
