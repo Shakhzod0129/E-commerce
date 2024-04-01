@@ -34,7 +34,7 @@ public class CartController {
                                     @RequestHeader(value = "Accept-Language", defaultValue = "UZ") AppLanguage language) {
 
         Long profileId = SpringSecurityUtil.getCurrentUser().getId();
-        return ResponseEntity.ok(cartService.addProduct(profileId,dto,language));
+        return ResponseEntity.ok(cartService.addProducts(profileId,dto,language));
     }
 
     @Operation(summary = "Delete product from cart by ID")
@@ -43,9 +43,20 @@ public class CartController {
     public ResponseEntity<String> deleteProducts(@RequestBody CartDTO dto,
                                                  @RequestHeader(value = "Accept-Language", defaultValue = "UZ") AppLanguage language) {
         Long profileId = SpringSecurityUtil.getCurrentUser().getId();
-        String message = cartService.deleteProduct(profileId,dto, language);
+        String message = cartService.deleteByProductId(profileId,dto, language);
         return ResponseEntity.ok(message);
     }
+
+    @Operation(summary = "Api for cart", description = "this api used to update product to cart")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    @PutMapping("/update")
+    public ResponseEntity<?> update(@RequestBody CartDTO dto,
+                                 @RequestHeader(value = "Accept-Language", defaultValue = "UZ") AppLanguage language) {
+
+        Long profileId = SpringSecurityUtil.getCurrentUser().getId();
+        return ResponseEntity.ok(cartService.updateProducts(profileId,dto,language));
+    }
+
 
 
 

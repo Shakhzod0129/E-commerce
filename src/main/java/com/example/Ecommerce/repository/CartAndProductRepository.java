@@ -17,4 +17,6 @@ public interface CartAndProductRepository extends CrudRepository<CartAndProductE
     @Transactional
     @Query("delete from CartAndProductEntity where productId=?1")
     void deleteByProductId(Long id);
+
+    CartAndProductEntity findByCartIdAndProductId(Long cartId, Long productId);
 }
